@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primaryColor: #0a0d2d;
+  --secondaryColor: #2cee91;
+  --white: #ffffff;
+  --darkBlueColor: #343651;
+  --doplyColor: #85f5bf;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --secondaryColor: #66e691;
+    --primaryColor: #1b1b1b;
+  }
+}
+
+body {
+  color: var(--white);
+  background: var(--primaryColor);
+  font-family: "Sora", sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.openMenu {
+  right: -100%;
+  transition: all 0.5s;
+}
+.openMenu.active {
+  position: fixed;
+  right: 0;
+  top: 73px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--darkBlueColor);
+  z-index: 9;
+  padding: 50px;
+}
+.openMenu.active nav {
+  margin-bottom: 20px;
+}
+
+.swiper-pagination-bullet {
+  height: 10px !important;
+  width: 10px !important;
+  background: #fff !important;
+  opacity: 0.5 !important;
+}
+.swiper-pagination-bullet-active {
+  background: var(--secondaryColor) !important;
+  opacity: 1 !important;
+}
+.swiper-scrollbar-drag {
+  background: transparent !important;
+}
+.swiper-pagination {
+  bottom: -1% !important;
+}
+.swiper {
+  padding-bottom: 36px !important;
+}
+
+footer::after {
+  position: absolute;
+  content: "";
+  background: url("/assets/images/logo-line.svg") no-repeat;
+  width: 150px;
+  height: 100%;
+  top: -177px;
+  right: -17px;
+}
+
+.is_active {
+  color: var(--secondaryColor);
+}
+
+/* Blog Content  */
+.blogContent-wrapper {
+  padding: 20px 0;
+}
+
+.blogContent-wrapper h2 {
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  color: var(--secondaryColor);
+}
+.blogContent-wrapper p {
+  font-size: 18px;
+
+  margin-bottom: 15px;
+}
+
+/* callToAction   */
+
+.owl-carousel .owl-dots {
+  text-align: center;
+  margin-top: 20px;
+}
+.owl-carousel button.owl-dot span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: inline-block;
+  margin-right: 10px;
+  opacity: 0.5;
+}
+.owl-carousel button.owl-dot.active span {
+  background: var(--secondaryColor);
+  opacity: 1;
+}
+@media (max-width: 767px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  footer::after {
+    width: 90px;
+    top: 0;
+  }
+  .openMenu.active {
+    padding: 40px 30px;
+  }
+}
